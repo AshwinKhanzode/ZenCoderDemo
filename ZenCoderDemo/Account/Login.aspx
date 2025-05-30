@@ -41,6 +41,12 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
+                            <div class="g-recaptcha" data-sitekey="<%: RecaptchaSiteKey %>"></div>
+                            <asp:Literal runat="server" ID="CaptchaError" CssClass="text-danger" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
                             <asp:Button runat="server" OnClick="LogIn" Text="Log in" CssClass="btn btn-default" />
                         </div>
                     </div>
@@ -58,5 +64,6 @@
             </section>
         </div>
     </div>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </asp:Content>
 
