@@ -9,15 +9,15 @@ public partial class Account_Register : Page
 {
     protected void CreateUser_Click(object sender, EventArgs e)
     {
-        if (!Regex.IsMatch(Email.Text, @"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"))
+        if (!Regex.IsMatch(EmailTextBox.Text, @"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"))
         {
-            ErrorMessage.Text = "A valid email is required.";
+            ErrorMessageLiteral.Text = "A valid email is required.";
             return;
         }
 
         var manager = new UserManager();
-        var user = new ApplicationUser() { UserName = UserName.Text, Email = Email.Text };
-        IdentityResult result = manager.Create(user, Password.Text);
+        var user = new ApplicationUser() { UserName = UserNameTextBox.Text, Email = EmailTextBox.Text };
+        IdentityResult result = manager.Create(user, PasswordTextBox.Text);
         if (result.Succeeded)
         {
             IdentityHelper.SignIn(manager, user, isPersistent: false);
@@ -25,7 +25,7 @@ public partial class Account_Register : Page
         }
         else
         {
-            ErrorMessage.Text = result.Errors.FirstOrDefault();
+            ErrorMessageLiteral.Text = result.Errors.FirstOrDefault();
         }
     }
 }
