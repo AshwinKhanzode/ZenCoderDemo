@@ -26,6 +26,10 @@ namespace ZenCoderDemo
         public UserManager()
             : base(new UserStore<ApplicationUser>(new ApplicationDbContext()))
         {
+            this.UserValidator = new UserValidator<ApplicationUser>(this)
+            {
+                RequireUniqueEmail = true
+            };
         }
     }
 }
