@@ -25,7 +25,13 @@ public partial class Account_Register : Page
         }
         else
         {
-            ErrorMessageLiteral.Text = result.Errors.FirstOrDefault();
+            string firstError = string.Empty;
+            foreach (var err in result.Errors)
+            {
+                firstError = err;
+                break;
+            }
+            ErrorMessageLiteral.Text = firstError;
         }
     }
 }
