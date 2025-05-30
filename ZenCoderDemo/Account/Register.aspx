@@ -23,7 +23,7 @@
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="Email" CssClass="form-control" />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Email" CssClass="text-danger" ErrorMessage="The email field is required." />
-                <asp:RegularExpressionValidator runat="server" ControlToValidate="Email" CssClass="text-danger" ValidationExpression="^\S+@\S+\.\S+$" ErrorMessage="A valid email is required." />
+                <asp:RegularExpressionValidator runat="server" ControlToValidate="Email" CssClass="text-danger" ValidationExpression="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" ErrorMessage="A valid email is required." />
             </div>
         </div>
         <div class="form-group">
