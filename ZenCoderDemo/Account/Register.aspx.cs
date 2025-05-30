@@ -9,7 +9,6 @@ public partial class Account_Register : Page
     protected void CreateUser_Click(object sender, EventArgs e)
     {
         var manager = new UserManager();
-        manager.UserValidator.RequireUniqueEmail = true;
         var user = new ApplicationUser() { UserName = UserName.Text, Email = Email.Text };
         IdentityResult result = manager.Create(user, Password.Text);
         if (result.Succeeded)
